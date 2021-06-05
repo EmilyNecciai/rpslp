@@ -9,7 +9,7 @@
       Let's play Rock - Paper - Scissors - Lizard - Spock!
       <br />
       Refresh to play!</h1>
-      <p style="text-align: center; margin-top: 10px;"><a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock">You can learn more about this variation of Rock, Paper, Scissors here!</a> </p>
+      <p style="text-align: center; margin-top: 10px;"><a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" target="_blank">You can learn more about this variation of Rock, Paper, Scissors here!</a> </p>
     <script type="text/javascript">
       // TODO: Create an array of the three game choices (Rock, Paper, or Scissors).
       var playChoices = ["rock", "paper", "scissors", "lizard", "spock"];
@@ -28,7 +28,7 @@
         var compChoice = playChoices[Math.floor(Math.random() * playChoices.length)];
 
         // TODO: Collect the user's response and convert to lower case. This is the user's turn.
-        var userChoice = prompt("Choose from rock, paper, scissors, lizard, or spock to get started.");
+        var userChoice = prompt("Choose from rock, paper, scissors, lizard, or spock. There will be five rounds. \nGood luck!");
         userChoice = userChoice.toLowerCase();
 
         // TODO: Create the game logic to run if the user chooses a valid game choice
@@ -50,16 +50,34 @@
               (userChoice === "spock" && compChoice === "rock")
             ) {
               win++;
-              alert("You won this round!");
+              alert("You won this round!" + 
+              "\nWins: " + 
+                win + 
+                "\nLosses: " + 
+                lose + 
+                "\nTies: " + 
+                tie );
 // TIE 
             } else if (userChoice === compChoice) {
               tie++;
-              alert("It's a tie!");
+              alert("It's a tie!" + 
+              "\nWins: " + 
+                win + 
+                "\nLosses: " + 
+                lose + 
+                "\nTies: " + 
+                tie );
 // LOSE 
-           } else {
-            lose++;
-            alert ("The Compuer won this round!");
-           }
+            } else {
+                lose++;
+                alert ("The Computer won this round!" + 
+                "\nWins: " + 
+                win + 
+                "\nLosses: " + 
+                lose + 
+                "\nTies: " + 
+                tie );
+            }
 
            // INVALID OPTION 
         } else {
@@ -71,7 +89,8 @@
 
       // TODO: When the game is over, alert the final total to the user. We can use the \n character to make a line break.
       alert(
-        "Wins: " + 
+        "All five rounds are complete! Final Scores:" +
+        "\nWins: " + 
         win + 
         "\nLosses: " + 
         lose + 
