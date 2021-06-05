@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1 style="text-align:center; margin-top:20%;">
+      Let's play Rock Paper Scissors!<br />Refresh to play again!
+    </h1>
+    <script type="text/javascript">
+      // TODO: Create an array of the three game choices (Rock, Paper, or Scissors).
+      var playChoices = ["rock", "paper", "scissors", "lizard", "spock"];
+
+      // TODO: Create variables to hold the number of wins, losses, and ties. They start at 0.
+
+      var win = 0;
+      var lose = 0;
+      var tie = 0;
+
+
+      //FOR LOOP TO REPEAT UNTIL 5 ROUNDS COMPLETE
+      for (var i = 0; i < 5; i++) {
+       
+        // TODO: Randomly choose a choice from the gameChoices array. This is the computer's turn.
+        var compChoice = playChoices[Math.floor(Math.random() * playChoices.length)];
+
+        // TODO: Collect the user's response and convert to lower case. This is the user's turn.
+        var userChoice = prompt("Choose from rock, paper, scissors, lizard, or spock to get started.");
+        userChoice = userChoice.toLowerCase();
+
+        // TODO: Create the game logic to run if the user chooses a valid game choice
+
+        if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors" || userChoice === "lizard" || userChoice === "spock") {
+          alert("Computer chose " +compChoice);
+
+// WIN 
+            if (
+              (userChoice === "rock" && compChoice ===  "scissors") ||
+              (userChoice === "rock" && compChoice === "lizard") ||
+              (userChoice === "paper" && compChoice === "rock") ||
+              (userChoice === "paper" && compChoice === "spock") ||
+              (userChoice === "scissors" && compChoice === "paper") ||
+              (userChoice === "scissors" && compChoice === "lizard") ||
+              (userChoice === "lizard" && compChoice === "spock") ||
+              (userChoice === "lizard" && compChoice === "paper") ||
+              (userChoice === "spock" && compChoice === "scissors") ||
+              (userChoice === "spock" && compChoice === "rock")
+            ) {
+              win++;
+              alert("You won this round!");
+// TIE 
+            } else if (userChoice === compChoice) {
+              tie++;
+              alert("It's a tie!");
+// LOSE 
+           } else {
+            lose++;
+            alert ("The Compuer won this round!");
+           }
+
+           // INVALID OPTION 
+        } else {
+          alert("Please choose a valid option: rock, paper, scissors, lizard, or spock.");
+        }
+
+        //CLOSE FOR LOOP
+    }
+
+      // TODO: When the game is over, alert the final total to the user. We can use the \n character to make a line break.
+      alert(
+        "Wins: " + 
+        win + 
+        "\nLosses: " + 
+        lose + 
+        "\nTies: " + 
+        tie 
+      );
+    </script>
+  </body>
+</html>
